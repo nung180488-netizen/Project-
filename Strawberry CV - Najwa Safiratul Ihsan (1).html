@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Najwa Safiratul Ihsan - Strawberry CV</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Quicksand & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        berry: {
+                            50: '#fff1f3',
+                            100: '#ffe4e8',
+                            200: '#fecdd6',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            700: '#be123c',
+                        },
+                        strawgreen: '#22c55e',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        cute: ['Quicksand', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fff5f7;
+            background-image: radial-gradient(#fecdd6 0.8px, transparent 0.8px), radial-gradient(#fecdd6 0.8px, #fff5f7 0.8px);
+            background-size: 32px 32px;
+            background-position: 0 0, 16px 16px;
+        }
+
+        /* Floating background animation */
+        .strawberry-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .floating-item {
+            position: absolute;
+            animation: float 12s infinite ease-in-out;
+            opacity: 0.25;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(15deg); }
+        }
+
+        /* Glassmorphism custom style */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(253, 164, 175, 0.3);
+        }
+
+        .glass-card-pink {
+            background: rgba(255, 241, 243, 0.9);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(251, 113, 133, 0.3);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ffe4e8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #fb7185;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e11d48;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased relative min-h-screen">
+
+    <div class="strawberry-bg">
+        <div class="floating-item text-4xl" style="top: 10%; left: 5%; animation-delay: 0s;">🍓</div>
+        <div class="floating-item text-3xl" style="top: 25%; right: 8%; animation-delay: 2s;">🌸</div>
+        <div class="floating-item text-4xl" style="top: 60%; left: 8%; animation-delay: 4s;">✨</div>
+        <div class="floating-item text-5xl" style="top: 75%; right: 12%; animation-delay: 1s;">🍓</div>
+        <div class="floating-item text-3xl" style="top: 40%; left: 85%; animation-delay: 3s;">🎀</div>
+    </div>
+
+    <header class="sticky top-0 z-50 px-4 py-3">
+        <nav class="max-w-5xl mx-auto glass-card rounded-full px-6 py-3 flex items-center justify-between shadow-lg shadow-pink-100/50">
+            <a href="#" class="flex items-center gap-2 font-cute text-xl font-bold text-berry-600">
+                <span class="text-2xl animate-bounce">🍓</span>
+                <span>Najwa's Space</span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-6 font-semibold text-sm text-slate-600">
+                <a href="#about" class="hover:text-berry-600 transition-colors flex items-center gap-1"><i data-lucide="user" class="w-4 h-4"></i> Data Diri</a>
+                <a href="#experience" class="hover:text-berry-600 transition-colors flex items-center gap-1"><i data-lucide="award" class="w-4 h-4"></i> Pengalaman</a>
+                <a href="#favorites" class="hover:text-berry-600 transition-colors flex items-center gap-1"><i data-lucide="heart" class="w-4 h-4"></i> Favorit</a>
+                <a href="#game" class="hover:text-berry-600 transition-colors flex items-center gap-1"><i data-lucide="gamepad-2" class="w-4 h-4"></i> Mini Game</a>
+            </div>
+
+            <button onclick="window.print()" class="bg-berry-500 hover:bg-berry-600 text-white px-4 py-2 rounded-full text-xs font-bold transition-all transform hover:scale-105 shadow-md flex items-center gap-1.5">
+                <i data-lucide="printer" class="w-4 h-4"></i>
+                <span>Cetak CV</span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-8 relative z-10 space-y-12">
+
+        <section class="glass-card rounded-3xl p-6 md:p-10 shadow-xl shadow-pink-200/40 relative overflow-hidden">
+            <!-- Decorative badge -->
+            <div class="absolute -top-12 -right-12 w-40 h-40 bg-berry-200/50 rounded-full blur-2xl"></div>
+
+            <div class="flex flex-col md:flex-row items-center gap-8 relative z-10">
+                <!-- Avatar frame -->
+                <div class="relative group">
+                    <div class="w-40 h-40 md:w-48 md:h-48 rounded-full p-2 bg-gradient-to-tr from-berry-400 via-pink-300 to-rose-400 shadow-xl">
+                        <div class="w-full h-full rounded-full bg-white flex flex-col items-center justify-center overflow-hidden relative border-4 border-white">
+                            <!-- Animated Avatar Graphic -->
+                            <div class="text-6xl md:text-7xl mb-1 transform group-hover:scale-110 transition-transform duration-300">👩🏻‍🎓</div>
+                            <span class="bg-berry-100 text-berry-600 text-[10px] font-bold px-3 py-1 rounded-full border border-berry-300">
+                                Siswa SMA 🍓
+                            </span>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-1 right-1 bg-white p-2.5 rounded-full shadow-lg border border-pink-200 text-berry-500">
+                        <i data-lucide="sparkles" class="w-5 h-5"></i>
+                    </div>
+                </div>
+
+                <!-- Bio Intro -->
+                <div class="text-center md:text-left space-y-4 flex-1">
+                    <div class="inline-flex items-center gap-2 bg-berry-100 text-berry-700 px-3 py-1 rounded-full text-xs font-bold">
+                        <span>✨ Welcome to My Official CV</span>
+                    </div>
+
+                    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-800 tracking-tight font-cute">
+                        Najwa Safiratul Ihsan
+                    </h1>
+
+                    <p class="text-slate-600 font-medium leading-relaxed max-w-xl">
+                        Siswa SMA yang aktif dalam kegiatan ekstrakurikuler <strong class="text-berry-600 font-semibold">Palang Merah Remaja (PMR)</strong>, menyukai bidang olahraga beregu seperti <strong class="text-berry-600 font-semibold">Voli & Futsal</strong>, serta memiliki pengalaman kepemimpinan sebagai dirigen.
+                    </p>
+
+                    <!-- Quick Info Badges -->
+                    <div class="flex flex-wrap justify-center md:justify-start gap-3 pt-2">
+                        <div class="flex items-center gap-2 bg-white/80 border border-pink-200 px-3 py-1.5 rounded-2xl text-xs text-slate-700 font-medium shadow-sm">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-berry-500"></i>
+                            <span>Cikandang, Brebes</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/80 border border-pink-200 px-3 py-1.5 rounded-2xl text-xs text-slate-700 font-medium shadow-sm">
+                            <i data-lucide="calendar" class="w-4 h-4 text-berry-500"></i>
+                            <span>3 Februari 2011</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/80 border border-pink-200 px-3 py-1.5 rounded-2xl text-xs text-slate-700 font-medium shadow-sm">
+                            <i data-lucide="heart-handshake" class="w-4 h-4 text-berry-500"></i>
+                            <span>Anggota PMR SMA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="space-y-4">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl p-2 bg-berry-100 rounded-2xl text-berry-600">🍓</span>
+                <h2 class="text-2xl font-bold font-cute text-slate-800">Data Diri & Identitas</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="glass-card p-5 rounded-3xl space-y-2 hover:border-berry-400 transition-all hover:-translate-y-1 shadow-sm">
+                    <div class="w-10 h-10 rounded-2xl bg-pink-100 text-berry-600 flex items-center justify-center font-bold">
+                        <i data-lucide="user" class="w-5 h-5"></i>
+                    </div>
+                    <div class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Nama Lengkap</div>
+                    <div class="text-slate-800 font-bold text-base">Najwa Safiratul Ihsan</div>
+                </div>
+
+                <div class="glass-card p-5 rounded-3xl space-y-2 hover:border-berry-400 transition-all hover:-translate-y-1 shadow-sm">
+                    <div class="w-10 h-10 rounded-2xl bg-pink-100 text-berry-600 flex items-center justify-center font-bold">
+                        <i data-lucide="cake" class="w-5 h-5"></i>
+                    </div>
+                    <div class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Tempat & Tgl Lahir</div>
+                    <div class="text-slate-800 font-bold text-base">Brebes, 3 Feb 2011</div>
+                </div>
+
+                <div class="glass-card p-5 rounded-3xl space-y-2 hover:border-berry-400 transition-all hover:-translate-y-1 shadow-sm">
+                    <div class="w-10 h-10 rounded-2xl bg-pink-100 text-berry-600 flex items-center justify-center font-bold">
+                        <i data-lucide="home" class="w-5 h-5"></i>
+                    </div>
+                    <div class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Alamat</div>
+                    <div class="text-slate-800 font-bold text-base">Cikandang</div>
+                </div>
+
+                <div class="glass-card p-5 rounded-3xl space-y-2 hover:border-berry-400 transition-all hover:-translate-y-1 shadow-sm">
+                    <div class="w-10 h-10 rounded-2xl bg-pink-100 text-berry-600 flex items-center justify-center font-bold">
+                        <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                    </div>
+                    <div class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Pendidikan</div>
+                    <div class="text-slate-800 font-bold text-base">Siswa SMA Active</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="space-y-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl p-2 bg-berry-100 rounded-2xl text-berry-600">🏆</span>
+                    <h2 class="text-2xl font-bold font-cute text-slate-800">Pengalaman & Prestasi</h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1: PMR SMA -->
+                <div class="glass-card p-6 rounded-3xl space-y-4 border-l-8 border-l-berry-500 relative overflow-hidden group">
+                    <div class="flex items-center justify-between">
+                        <span class="bg-berry-100 text-berry-700 text-xs font-extrabold px-3 py-1 rounded-full">Saat Ini (SMA)</span>
+                        <i data-lucide="heart-pulse" class="w-6 h-6 text-berry-500"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-800">Ekstrakurikuler PMR</h3>
+                        <p class="text-xs font-semibold text-berry-600">Palang Merah Remaja SMA</p>
+                    </div>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Aktif mengikuti kegiatan ekstrakurikuler PMR di SMA, mempelajari keterampilan pertolongan pertama, kepedulian sosial, serta kesehatan remaja.
+                    </p>
+                </div>
+
+                <!-- Card 2: Dirigen SMP -->
+                <div class="glass-card p-6 rounded-3xl space-y-4 border-l-8 border-l-pink-400 relative overflow-hidden group">
+                    <div class="flex items-center justify-between">
+                        <span class="bg-pink-100 text-pink-700 text-xs font-extrabold px-3 py-1 rounded-full">Pengalaman SMP</span>
+                        <i data-lucide="music" class="w-6 h-6 text-pink-500"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-800">Dirigen Musik / Upacara</h3>
+                        <p class="text-xs font-semibold text-pink-600">SMP Level</p>
+                    </div>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Pernah dipercaya menjadi Dirigen untuk memimpin paduan suara dan pengiringan lagu dalam kegiatan resmi serta upacara bendera SMP.
+                    </p>
+                </div>
+
+                <!-- Card 3: Peringkat 5 -->
+                <div class="glass-card p-6 rounded-3xl space-y-4 border-l-8 border-l-amber-400 relative overflow-hidden group">
+                    <div class="flex items-center justify-between">
+                        <span class="bg-amber-100 text-amber-700 text-xs font-extrabold px-3 py-1 rounded-full">Prestasi SMP</span>
+                        <i data-lucide="medal" class="w-6 h-6 text-amber-500"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-800">Peringkat 5 Kelas 7</h3>
+                        <p class="text-xs font-semibold text-amber-600">Prestasi Akademik SMP</p>
+                    </div>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Berhasil mengukir prestasi dengan meraih Peringkat 5 pada jenjang kelas 7 SMP dengan ketekunan dan semangat belajar tinggi.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-6">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl p-2 bg-berry-100 rounded-2xl text-berry-600">⚽</span>
+                <h2 class="text-2xl font-bold font-cute text-slate-800">Olahraga & Hobi</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Voli -->
+                <div class="glass-card-pink p-6 rounded-3xl flex items-center gap-5 hover:scale-[1.02] transition-transform">
+                    <div class="w-16 h-16 rounded-2xl bg-berry-500 text-white flex items-center justify-center text-3xl shadow-lg shadow-berry-200">
+                        🏐
+                    </div>
+                    <div class="space-y-1">
+                        <h3 class="text-lg font-bold text-slate-800">Bola Voli</h3>
+                        <p class="text-sm text-slate-600">
+                            Menyukai olahraga bola voli yang melatih refleks, kerjasama tim, kekuatan fisik, dan fokus di lapangan.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Futsal -->
+                <div class="glass-card-pink p-6 rounded-3xl flex items-center gap-5 hover:scale-[1.02] transition-transform">
+                    <div class="w-16 h-16 rounded-2xl bg-berry-500 text-white flex items-center justify-center text-3xl shadow-lg shadow-berry-200">
+                        ⚽
+                    </div>
+                    <div class="space-y-1">
+                        <h3 class="text-lg font-bold text-slate-800">Futsal</h3>
+                        <p class="text-sm text-slate-600">
+                            Gemar bermain futsal untuk melatih kelincahan, daya tahan fisik, serta semangat sportivitas bersama teman.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="favorites" class="space-y-6">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl p-2 bg-berry-100 rounded-2xl text-berry-600">💖</span>
+                <h2 class="text-2xl font-bold font-cute text-slate-800">Sudut Favorit Najwa</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Color -->
+                <div class="glass-card p-6 rounded-3xl text-center space-y-3 relative overflow-hidden group">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-pink-400 flex items-center justify-center text-2xl text-white shadow-lg ring-4 ring-pink-100 group-hover:scale-110 transition-transform">
+                        🎨
+                    </div>
+                    <div>
+                        <span class="text-xs font-extrabold uppercase text-berry-500 tracking-wider">Warna Favorit</span>
+                        <h3 class="text-xl font-bold text-slate-800">Pink 💖</h3>
+                    </div>
+                    <p class="text-xs text-slate-500">
+                        Warna ceria yang memberikan kesan ramah, manis, dan penuh semangat!
+                    </p>
+                </div>
+
+                <!-- Food -->
+                <div class="glass-card p-6 rounded-3xl text-center space-y-3 relative overflow-hidden group">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-rose-500 flex items-center justify-center text-2xl text-white shadow-lg ring-4 ring-rose-100 group-hover:scale-110 transition-transform">
+                        🍲
+                    </div>
+                    <div>
+                        <span class="text-xs font-extrabold uppercase text-berry-500 tracking-wider">Makanan Favorit</span>
+                        <h3 class="text-xl font-bold text-slate-800">Seblak 🌶️</h3>
+                    </div>
+                    <p class="text-xs text-slate-500">
+                        Khas dengan rasa gurih, pedas, dan kencur yang nagih!
+                    </p>
+                </div>
+
+                <!-- Drink -->
+                <div class="glass-card p-6 rounded-3xl text-center space-y-3 relative overflow-hidden group">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-amber-600 flex items-center justify-center text-2xl text-white shadow-lg ring-4 ring-amber-100 group-hover:scale-110 transition-transform">
+                        ☕
+                    </div>
+                    <div>
+                        <span class="text-xs font-extrabold uppercase text-berry-500 tracking-wider">Minuman Favorit</span>
+                        <h3 class="text-xl font-bold text-slate-800">Kopi Susu 🥛</h3>
+                    </div>
+                    <p class="text-xs text-slate-500">
+                        Perpaduan manis dan aromatik yang pas untuk mood booster belajar!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="game" class="glass-card rounded-3xl p-6 md:p-8 space-y-6 text-center border-2 border-berry-300">
+            <div class="space-y-2">
+                <div class="inline-flex items-center gap-2 bg-berry-100 text-berry-700 px-3 py-1 rounded-full text-xs font-bold">
+                    <span>🎮 Fun Mini Game</span>
+                </div>
+                <h2 class="text-2xl font-bold font-cute text-slate-800">Tangkap Stroberi Najwa!</h2>
+                <p class="text-sm text-slate-600">Klik atau sentuh stroberi yang muncul untuk mengumpulkan skor!</p>
+            </div>
+
+            <div class="flex flex-col items-center justify-center space-y-4">
+                <div class="flex items-center gap-6 font-bold text-slate-700">
+                    <div class="bg-white px-4 py-2 rounded-2xl border border-pink-200 shadow-sm">
+                        Skor: <span id="score-text" class="text-berry-600 text-xl font-extrabold">0</span>
+                    </div>
+                    <div class="bg-white px-4 py-2 rounded-2xl border border-pink-200 shadow-sm">
+                        Waktu: <span id="timer-text" class="text-berry-600 text-xl font-extrabold">15</span>s
+                    </div>
+                </div>
+
+                <div id="game-area" class="w-full max-w-md h-56 bg-gradient-to-b from-pink-100 to-pink-50 rounded-3xl relative overflow-hidden border-2 border-dashed border-berry-300 flex items-center justify-center cursor-pointer">
+                    <button id="start-game-btn" onclick="startGame()" class="bg-berry-500 hover:bg-berry-600 text-white font-bold px-6 py-3 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                        <i data-lucide="play" class="w-5 h-5"></i>
+                        Mulai Game 🍓
+                    </button>
+                    
+                    <div id="target-strawberry" onclick="catchStrawberry()" class="hidden absolute text-5xl cursor-pointer select-none transition-all duration-200 transform hover:scale-125">
+                        🍓
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="glass-card rounded-3xl p-6 md:p-8 space-y-6">
+            <div class="text-center space-y-2">
+                <span class="text-3xl">💌</span>
+                <h2 class="text-2xl font-bold font-cute text-slate-800">Kirim Pesan Semangat</h2>
+                <p class="text-sm text-slate-600">Tinggalkan pesan manis untuk Najwa Safiratul Ihsan!</p>
+            </div>
+
+            <form onsubmit="handleSendPesan(event)" class="max-w-xl mx-auto space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 mb-1">Nama Kamu</label>
+                        <input type="text" id="sender-name" required placeholder="Contoh: Teman SMA" class="w-full px-4 py-2.5 rounded-2xl border border-pink-200 focus:outline-none focus:ring-2 focus:ring-berry-400 bg-white/80 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 mb-1">Topik / Salam</label>
+                        <input type="text" id="sender-topic" placeholder="Contoh: Semangat PMR & Voli!" class="w-full px-4 py-2.5 rounded-2xl border border-pink-200 focus:outline-none focus:ring-2 focus:ring-berry-400 bg-white/80 text-sm">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 mb-1">Pesan Kamu</label>
+                    <textarea id="sender-message" rows="3" required placeholder="Tuliskan pesan atau dukunganmu..." class="w-full px-4 py-2.5 rounded-2xl border border-pink-200 focus:outline-none focus:ring-2 focus:ring-berry-400 bg-white/80 text-sm"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-berry-500 hover:bg-berry-600 text-white font-bold py-3 rounded-2xl transition-all shadow-lg shadow-pink-300 flex items-center justify-center gap-2">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                    <span>Kirim Pesan Sweet 🍓</span>
+                </button>
+            </form>
+
+            <div id="message-toast" class="hidden max-w-xl mx-auto p-4 bg-emerald-100 border border-emerald-300 text-emerald-800 rounded-2xl text-center text-sm font-semibold">
+                ✨ Pesanmu berhasil dikirimkan! Terima kasih sudah menyapa Najwa.
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 text-xs text-slate-500 space-y-2 relative z-10">
+        <p class="font-medium">Curriculum Vitae Web - <strong>Najwa Safiratul Ihsan</strong> 🍓</p>
+        <p class="text-slate-400">Didesain dengan Tema Stroberi & Pink</p>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mini Game Logic
+        let score = 0;
+        let timeLeft = 15;
+        let gameInterval = null;
+        let timerInterval = null;
+
+        function startGame() {
+            score = 0;
+            timeLeft = 15;
+            document.getElementById('score-text').innerText = score;
+            document.getElementById('timer-text').innerText = timeLeft;
+
+            document.getElementById('start-game-btn').classList.add('hidden');
+            const target = document.getElementById('target-strawberry');
+            target.classList.remove('hidden');
+
+            moveStrawberry();
+
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer-text').innerText = timeLeft;
+                if (timeLeft <= 0) {
+                    endGame();
+                }
+            }, 1000);
+        }
+
+        function moveStrawberry() {
+            const area = document.getElementById('game-area');
+            const target = document.getElementById('target-strawberry');
+
+            const maxX = area.clientWidth - 60;
+            const maxY = area.clientHeight - 60;
+
+            const randomX = Math.floor(Math.random() * Math.max(0, maxX));
+            const randomY = Math.floor(Math.random() * Math.max(0, maxY));
+
+            target.style.left = `${randomX}px`;
+            target.style.top = `${randomY}px`;
+        }
+
+        function catchStrawberry() {
+            if (timeLeft > 0) {
+                score += 10;
+                document.getElementById('score-text').innerText = score;
+                moveStrawberry();
+            }
+        }
+
+        function endGame() {
+            clearInterval(timerInterval);
+            const target = document.getElementById('target-strawberry');
+            target.classList.add('hidden');
+            
+            const startBtn = document.getElementById('start-game-btn');
+            startBtn.classList.remove('hidden');
+            startBtn.innerHTML = `<i data-lucide="rotate-ccw" class="w-4 h-4"></i> Main Lagi (Skor Akhir: ${score})`;
+            lucide.createIcons();
+        }
+
+        // Handle Send Message
+        function handleSendPesan(event) {
+            event.preventDefault();
+            const toast = document.getElementById('message-toast');
+            toast.classList.remove('hidden');
+            
+            // Clear inputs
+            document.getElementById('sender-name').value = '';
+            document.getElementById('sender-topic').value = '';
+            document.getElementById('sender-message').value = '';
+
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
